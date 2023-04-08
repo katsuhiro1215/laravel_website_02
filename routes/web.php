@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeSlideController;
 use App\Http\Controllers\ProfileController;
@@ -45,6 +46,11 @@ Route::controller(AdminController::class)->group(function () {
 Route::controller(HomeSlideController::class)->group(function () {
     Route::get('home/slide', 'index')->name('home.slide');
     Route::post('home/slider/update', 'update')->name('home.slide.update'); 
+});
+
+Route::controller(AboutController::class)->group(function () {
+    Route::get('about/page', 'index')->name('about.page');
+    Route::post('about/page/update', 'update')->name('about.page.update');
 });
 
 

@@ -39,7 +39,7 @@
                       <span>About Page Setup</span>
                   </a>
                   <ul class="sub-menu" aria-expanded="false">
-                      <li><a href="email-inbox.html">About Page</a></li>
+                      <li><a href="{{ route('about.page') }}">About Page</a></li>
                       <li><a href="email-read.html">About Multi Image</a></li>
                       <li><a href="email-read.html">About Multi Image List</a></li>
                   </ul>
