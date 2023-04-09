@@ -3,6 +3,7 @@
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeSlideController;
+use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -63,5 +64,16 @@ Route::controller(AboutController::class)->group(function () {
     // showだけがない
 });
 
+Route::controller(PortfolioController::class)->group(function () {
+    Route::get('portfolio', 'index')->name('portfolio.index'); //index
+    Route::get('portfolio/create', 'create')->name('portfolio.create'); //create
+    Route::post('portfolio/store', 'store')->name('portfolio.store'); //store
+    Route::get('portfolio/edit/{id}', 'edit')->name('portfolio.edit'); //edit
+    Route::post('portfolio/update', 'update')->name('portfolio.update'); //update
+    Route::get('portfolio/delete/{id}', 'delete')->name('portfolio.delete'); //delete
+    // showだけがない
+    Route::get('portfolio/single/{id}', 'single')->name('portfolio.single');
+    Route::get('portfolio', 'Portfolio')->name('page.portfolio');
+});
 
 require __DIR__.'/auth.php';
