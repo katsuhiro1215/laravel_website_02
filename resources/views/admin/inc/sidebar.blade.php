@@ -40,8 +40,8 @@
                   </a>
                   <ul class="sub-menu" aria-expanded="false">
                       <li><a href="{{ route('about.page') }}">About Page</a></li>
-                      <li><a href="email-read.html">About Multi Image</a></li>
-                      <li><a href="email-read.html">About Multi Image List</a></li>
+                      <li><a href="{{ route('about.multi.image') }}">About Multi Image</a></li>
+                      <li><a href="{{ route('all.multi.image') }}">About Multi Image List</a></li>
                   </ul>
               </li>
 

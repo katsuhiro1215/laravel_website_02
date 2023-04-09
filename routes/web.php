@@ -51,6 +51,16 @@ Route::controller(HomeSlideController::class)->group(function () {
 Route::controller(AboutController::class)->group(function () {
     Route::get('about/page', 'index')->name('about.page');
     Route::post('about/page/update', 'update')->name('about.page.update');
+
+    Route::get('about', 'About')->name('page.about');
+
+    Route::get('about/multi/image', 'AboutMultiImage')->name('about.multi.image'); //create
+    Route::post('about/multi/image/store', 'StoreMultiImage')->name('store.multi.image'); //store
+    Route::get('all/multi/image', 'AllMultiImage')->name('all.multi.image'); //index
+    Route::get('edit/multi/image/{id}', 'EditMultiImage')->name('edit.multi.image'); //edit
+    Route::post('update/multi/image', 'UpdateMultiImage')->name('update.multi.image'); //update
+    Route::get('delete/multi/image/{id}', 'DeleteMultiImage')->name('delete.multi.image'); //delete
+    // showだけがない
 });
 
 
