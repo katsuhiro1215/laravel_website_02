@@ -2,9 +2,10 @@
 
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BlogCategoryController;
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\HomeSlideController;
 use App\Http\Controllers\PortfolioController;
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,54 +27,84 @@ Route::get('/dashboard', function () {
     return view('admin.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::middleware('auth')->group(function () {
-    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-});
-
 // Route Admin
-Route::controller(AdminController::class)->group(function () {
-    Route::get('admin/logout', 'destroy')->name('admin.logout');
-
-    Route::get('admin/profile', 'Profile')->name('admin.profile');
-    Route::get('admin/profile/edit', 'ProfileEdit')->name('admin.profile.edit');
-    Route::post('admin/profile/update', 'ProfileUpdate')->name('admin.profile.update');
-
-    Route::get('admin/change/password', 'ChangePassword')->name('admin.change.password');
-    Route::post('admin/update/password', 'UpdatePassword')->name('admin.update.password');
+Route::prefix('admin')->middleware('auth')->group(function () {
+    Route::controller(AdminController::class)->group(function () {
+        // Logout
+        Route::get('/logout', 'destroy')->name('admin.logout');
+        // Profile
+        Route::get('/profile', 'Profile')->name('admin.profile');
+        Route::get('/profile/edit', 'ProfileEdit')->name('admin.profile.edit');
+        Route::post('/profile/update', 'ProfileUpdate')->name('admin.profile.update');
+        // Change Password
+        Route::get('/change/password', 'ChangePassword')->name('admin.change.password');
+        Route::post('/update/password', 'UpdatePassword')->name('admin.update.password');
+    });
+    // Home Slider
+    Route::controller(HomeSlideController::class)->prefix('home')->group(function () {
+        Route::get('/home_slide/edit', 'edit')->name('home_slide.edit');
+        Route::post('/home_slide/update', 'update')->name('home_slide.update');
+    });
+    // About
+    Route::controller(AboutController::class)->prefix('about')->group(function () {
+        Route::get('/edit', 'edit')->name('about.edit');
+        Route::post('/update', 'update')->name('about.update');
+        // Backend Multi Image
+        Route::get('/multi_image', 'MultiImageIndex')->name('multi.image'); //index
+        Route::get('/multi_image/create', 'MultiImageCreate')->name('multi.image.create'); //create
+        Route::post('/multi_image', 'MultiImageStore')->name('store.multi.image'); //store
+        Route::get('/multi_image/{id}/edit', 'MultiImageEdit')->name('edit.multi.image'); //edit
+        Route::post('/multi_image/update', 'MultiImageUpdate')->name('update.multi.image'); //update
+        Route::get('/multi_image/{id}', 'MultiImageDelete')->name('delete.multi.image'); //delete
+    });
+    // Portfolio
+    Route::controller(PortfolioController::class)->prefix('portfolio')->group(function () {
+        Route::get('/', 'index')->name('portfolio.index'); //index
+        Route::get('/create', 'create')->name('portfolio.create'); //create
+        Route::post('/store', 'store')->name('portfolio.store'); //store
+        Route::get('/{id}/edit', 'edit')->name('portfolio.edit'); //edit
+        Route::post('/update', 'update')->name('portfolio.update'); //update
+        Route::get('/{id}', 'delete')->name('portfolio.delete'); //delete
+    });
+    // Blog Category
+    Route::controller(BlogCategoryController::class)->prefix('category-blog')->group(function () {
+        Route::get('/', 'index')->name('blog_category.index');
+        Route::get('/create', 'create')->name('blog_category.create');
+        Route::post('/', 'store')->name('blog_category.store');
+        Route::get('/{id}/edit', 'edit')->name('blog_category.edit');
+        Route::post('/{id}', 'update')->name('blog_category.update');
+        Route::get('/{id}', 'delete')->name('blog_category.delete');
+    });
+    // Blog
+    Route::controller(BlogController::class)->prefix('blog')->group(function () {
+        Route::get('/', 'index')->name('blog.index');
+        Route::get('/create', 'create')->name('blog.create');
+        Route::post('/', 'store')->name('blog.store');
+        Route::get('/{id}/edit', 'edit')->name('blog.edit');
+        Route::post('/{id}', 'update')->name('blog.update');
+        Route::get('/{id}', 'delete')->name('blog.delete');
+    });
 });
 
-Route::controller(HomeSlideController::class)->group(function () {
-    Route::get('home/slide', 'index')->name('home.slide');
-    Route::post('home/slider/update', 'update')->name('home.slide.update'); 
+
+// Frontend
+Route::controller(AboutController::class)->prefix('about')->group(function () {
+    Route::get('/page', 'About')->name('about');
+});
+Route::controller(PortfolioController::class)->prefix('portfolio')->group(function () {
+    Route::get('/{id}', 'single')->name('portfolio.single');
+    Route::get('/page', 'Portfolio')->name('portfolio');
+});
+Route::controller(BlogController::class)->prefix('blog')->group(function () {
+    Route::get('/{id}', 'single')->name('blog.single');
+    Route::get('/category/{id}', 'category')->name('blog.category');    
+    Route::get('/', 'Blog')->name('blog');
 });
 
-Route::controller(AboutController::class)->group(function () {
-    Route::get('about/page', 'index')->name('about.page');
-    Route::post('about/page/update', 'update')->name('about.page.update');
 
-    Route::get('about', 'About')->name('page.about');
+// Route::controller()->group(function () {
+//     Route::get('/', 'index')->name('footer.index');
+//     Route::get('/create', 'create')->name('footer.create');
+// });
 
-    Route::get('about/multi/image', 'AboutMultiImage')->name('about.multi.image'); //create
-    Route::post('about/multi/image/store', 'StoreMultiImage')->name('store.multi.image'); //store
-    Route::get('all/multi/image', 'AllMultiImage')->name('all.multi.image'); //index
-    Route::get('edit/multi/image/{id}', 'EditMultiImage')->name('edit.multi.image'); //edit
-    Route::post('update/multi/image', 'UpdateMultiImage')->name('update.multi.image'); //update
-    Route::get('delete/multi/image/{id}', 'DeleteMultiImage')->name('delete.multi.image'); //delete
-    // showだけがない
-});
-
-Route::controller(PortfolioController::class)->group(function () {
-    Route::get('portfolio', 'index')->name('portfolio.index'); //index
-    Route::get('portfolio/create', 'create')->name('portfolio.create'); //create
-    Route::post('portfolio/store', 'store')->name('portfolio.store'); //store
-    Route::get('portfolio/edit/{id}', 'edit')->name('portfolio.edit'); //edit
-    Route::post('portfolio/update', 'update')->name('portfolio.update'); //update
-    Route::get('portfolio/delete/{id}', 'delete')->name('portfolio.delete'); //delete
-    // showだけがない
-    Route::get('portfolio/single/{id}', 'single')->name('portfolio.single');
-    Route::get('portfolio', 'Portfolio')->name('page.portfolio');
-});
-
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

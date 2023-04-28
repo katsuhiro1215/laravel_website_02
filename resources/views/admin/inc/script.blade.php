@@ -37,6 +37,8 @@
 <!-- Sweetalert js -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 <script src="{{ asset('backend/assets/js/code.js') }}"></script>
+<!-- Bootstrap Tags Input js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-tagsinput/0.8.0/bootstrap-tagsinput.min.js" integrity="sha512-9UR1ynHntZdqHnwXKTaOm1s6V9fExqejKvg5XMawEMToW4sSw+3jtLrYfZPijvnwnnE8Uol1O9BcAskoxgec+g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script type="text/javascript">
     // Image js
@@ -90,6 +92,32 @@
                     )
                 }
             })
+        });
+    });
+    // Blog Category
+    $(document).ready(function (){
+        $('#myForm').validate({
+            rules: {
+                blog_category: {
+                    required : true,
+                }, 
+            },
+            messages :{
+                blog_category: {
+                    required : 'Please Enter Blog Category',
+                },
+            },
+            errorElement : 'span', 
+            errorPlacement: function (error,element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight : function(element, errorClass, validClass){
+                $(element).addClass('is-invalid');
+            },
+            unhighlight : function(element, errorClass, validClass){
+                $(element).removeClass('is-invalid');
+            },
         });
     });
 </script>

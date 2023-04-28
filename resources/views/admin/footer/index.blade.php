@@ -10,16 +10,16 @@
 
                             <h4 class="card-title">About Page </h4>
 
-                            <form method="post" action="{{ route('about.update') }}" enctype="multipart/form-data">
+                            <form method="post" action="{{ route('footer.update') }}">
                                 @csrf
 
                                 <input type="hidden" name="id" value="{{ $aboutpage->id }}">
 
                                 <div class="row mb-3">
-                                    <label for="example-text-input" class="col-sm-2 col-form-label">Title</label>
+                                    <label for="example-text-input" class="col-sm-2 col-form-label">Number</label>
                                     <div class="col-sm-10">
-                                        <input name="title" class="form-control" type="text"
-                                            value="{{ $aboutpage->title }}" id="example-text-input">
+                                        <input name="number" class="form-control" type="text"
+                                            value="{{ $aboutpage->number }}" id="example-text-input">
                                     </div>
                                 </div>
                                 <div class="row mb-3">

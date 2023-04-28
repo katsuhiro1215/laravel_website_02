@@ -8,7 +8,7 @@ use Image;
 
 class HomeSlideController extends Controller
 {
-    public function index()
+    public function edit()
     {
         $homeslide = HomeSlide::find(1);
 
@@ -38,7 +38,7 @@ class HomeSlideController extends Controller
                 'alert-type' => 'success'
             );
 
-            return to_route('home.slide')->with($notification);
+            return to_route('home_slide.edit')->with($notification);
         } else {
             HomeSlide::findOrFail($slide_id)->update([
                 'title' => $request->title,
@@ -51,7 +51,7 @@ class HomeSlideController extends Controller
                 'alert-type' => 'success'
             );
 
-            return to_route('home.slide')->with($notification);
+            return to_route('home_slide.edit')->with($notification);
         }
     }
 }

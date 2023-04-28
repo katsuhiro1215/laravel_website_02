@@ -10,7 +10,7 @@ use Illuminate\Support\Carbon;
 
 class AboutController extends Controller
 {
-    public function index()
+    public function edit()
     {
         $aboutpage = About::find(1);
 
@@ -58,20 +58,29 @@ class AboutController extends Controller
             return redirect()->back()->with($notification);
         }
     }
-
+    
+    // Frontend
     public function About()
     {
         $aboutpage = About::find(1);
 
         return view('frontend.page-about', compact('aboutpage'));
     }
-
-    public function AboutMultiImage()
+    
+    // Multi Image
+    public function MultiImageIndex()
     {
-        return view('admin.about.multiimage');
+        $allMultiImage = MultiImage::all();
+
+        return view('admin.about.multiimage.index', compact('allMultiImage'));
     }
 
-    public function StoreMultiImage(Request $request)
+    public function MultiImageCreate()
+    {
+        return view('admin.about.multiimage.create');
+    }
+
+    public function MultiImageStore(Request $request)
     {
         $image = $request->file('multi_image');
 
@@ -95,21 +104,14 @@ class AboutController extends Controller
         return redirect()->back()->with($notification);
     }
 
-    public function AllMultiImage()
-    {
-        $allMultiImage = MultiImage::all();
-
-        return view('admin.about.all_multiimage', compact('allMultiImage'));
-    }
-
-    public function EditMultiImage($id)
+    public function MultiImageEdit($id)
     {
         $multiImage = MultiImage::findOrFail($id);
 
-        return view('admin.about.edit_multiimage', compact('multiImage'));
+        return view('admin.about.multiimage.edit', compact('multiImage'));
     }
 
-    public function UpdateMultiImage(Request $request)
+    public function MultiImageUpdate(Request $request)
     {
         $multi_image_id = $request->id;
 
@@ -129,11 +131,11 @@ class AboutController extends Controller
                 'alert-type' => 'success'
             );
 
-            return to_route('all.multi.image')->with($notification);
+            return redirect()->back()->with($notification);
         }
     }
 
-    public function DeleteMultiImage($id)
+    public function MultiImageDelete($id)
     {
         $multi = MultiImage::findOrFail($id);
         $img = $multi->multi_image;

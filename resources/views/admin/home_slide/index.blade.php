@@ -9,7 +9,7 @@
                     <div class="card">
                         <div class="card-body">
                             <h4 class="card-title">Home Slide Page </h4>
-                            <form method="POST" action="{{ route('home.slide.update') }}" enctype="multipart/form-data">
+                            <form method="POST" action="{{ route('home_slide.update') }}" enctype="multipart/form-data">
                                 @csrf
                                 <input type="hidden" name="id" value="{{ $homeslide->id }}">
                                 <div class="row mb-3">

@@ -26,12 +26,12 @@ About | Katsucode Website
             </div>
             <div class="breadcrumb__wrap__icon">
                 <ul>
-                    <li><img src="assets/img/icons/breadcrumb_icon01.png" alt=""></li>
-                    <li><img src="assets/img/icons/breadcrumb_icon02.png" alt=""></li>
-                    <li><img src="assets/img/icons/breadcrumb_icon03.png" alt=""></li>
-                    <li><img src="assets/img/icons/breadcrumb_icon04.png" alt=""></li>
-                    <li><img src="assets/img/icons/breadcrumb_icon05.png" alt=""></li>
-                    <li><img src="assets/img/icons/breadcrumb_icon06.png" alt=""></li>
+                    <li><img src="{{ asset('frontend/assets/img/icons/breadcrumb_icon01.png') }}" alt=""></li>
+                    <li><img src="{{ asset('frontend/assets/img/icons/breadcrumb_icon02.png') }}" alt=""></li>
+                    <li><img src="{{ asset('frontend/assets/img/icons/breadcrumb_icon03.png') }}" alt=""></li>
+                    <li><img src="{{ asset('frontend/assets/img/icons/breadcrumb_icon04.png') }}" alt=""></li>
+                    <li><img src="{{ asset('frontend/assets/img/icons/breadcrumb_icon05.png') }}" alt=""></li>
+                    <li><img src="{{ asset('frontend/assets/img/icons/breadcrumb_icon06.png') }}" alt=""></li>
                 </ul>
             </div>
         </section>
@@ -43,7 +43,7 @@ About | Katsucode Website
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="about__image">
-                            <img src="{{ $aboutpage->about_image }}" alt="" width="100%" style="object-fit: cover;">
+                            <img src="{{ asset($aboutpage->about_image) }}" alt="" width="100%" style="object-fit: cover;">
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -54,7 +54,7 @@ About | Katsucode Website
                             </div>
                             <div class="about__exp">
                                 <div class="about__exp__icon">
-                                    <img src="assets/img/icons/about_icon.png" alt="">
+                                    <img src="{{ asset('frontend/assets/img/icons/about_icon.png') }}" alt="">
                                 </div>
                                 <div class="about__exp__content">
                                     <p>{{ $aboutpage->short_title }}</p>
@@ -187,7 +187,7 @@ About | Katsucode Website
                                             <div class="col-md-6 col-sm-9">
                                                 <div class="about__award__item">
                                                     <div class="award__logo">
-                                                        <img src="assets/img/images/awards_01.png" alt="">
+                                                        <img src="{{ asset('frontend/assets/img/images/awards_01.png') }}" alt="">
                                                     </div>
                                                     <div class="award__content">
                                                         <h5 class="title">Best ux designer award in 2002</h5>
@@ -200,7 +200,7 @@ About | Katsucode Website
                                             <div class="col-md-6 col-sm-9">
                                                 <div class="about__award__item">
                                                     <div class="award__logo">
-                                                        <img src="assets/img/images/awards_02.png" alt="">
+                                                        <img src="{{ asset('frontend/assets/img/images/awards_02.png') }}" alt="">
                                                     </div>
                                                     <div class="award__content">
                                                         <h5 class="title">BBA final examination 2001</h5>
@@ -213,7 +213,7 @@ About | Katsucode Website
                                             <div class="col-md-6 col-sm-9">
                                                 <div class="about__award__item">
                                                     <div class="award__logo">
-                                                        <img src="assets/img/images/awards_03.png" alt="">
+                                                        <img src="{{ asset('frontend/assets/img/images/awards_03.png') }}" alt="">
                                                     </div>
                                                     <div class="award__content">
                                                         <h5 class="title">User research award 2020</h5>
@@ -226,7 +226,7 @@ About | Katsucode Website
                                             <div class="col-md-6 col-sm-9">
                                                 <div class="about__award__item">
                                                     <div class="award__logo">
-                                                        <img src="assets/img/images/awards_04.png" alt="">
+                                                        <img src="{{ asset('frontend/assets/img/images/awards_04.png') }}" alt="">
                                                     </div>
                                                     <div class="award__content">
                                                         <h5 class="title">Dsigning award 2021</h5>
@@ -312,7 +312,7 @@ About | Katsucode Website
                         <div class="col-xl-3 col-lg-4 col-md-6">
                             <div class="services__style__two__item">
                                 <div class="services__style__two__icon">
-                                    <img src="assets/img/icons/services_light_icon01.png" alt="">
+                                    <img src="{{ asset('frontend/assets/img/icons/services_light_icon01.png') }}" alt="">
                                 </div>
                                 <div class="services__style__two__content">
                                     <h3 class="title"><a href="services-details.html">Business Strategy</a></h3>
@@ -325,7 +325,7 @@ About | Katsucode Website
                         <div class="col-xl-3 col-lg-4 col-md-6">
                             <div class="services__style__two__item">
                                 <div class="services__style__two__icon">
-                                    <img src="assets/img/icons/services_light_icon02.png" alt="">
+                                    <img src="{{ asset('frontend/assets/img/icons/services_light_icon02.png') }}" alt="">
                                 </div>
                                 <div class="services__style__two__content">
                                     <h3 class="title"><a href="services-details.html">Visual Design</a></h3>
@@ -339,7 +339,7 @@ About | Katsucode Website
                         <div class="col-xl-3 col-lg-4 col-md-6">
                             <div class="services__style__two__item">
                                 <div class="services__style__two__icon">
-                                    <img src="assets/img/icons/services_light_icon03.png" alt="">
+                                    <img src="{{ asset('frontend/assets/img/icons/services_light_icon03.png') }}" alt="">
                                 </div>
                                 <div class="services__style__two__content">
                                     <h3 class="title"><a href="services-details.html">Product Design</a></h3>
@@ -352,7 +352,7 @@ About | Katsucode Website
                         <div class="col-xl-3 col-lg-4 col-md-6">
                             <div class="services__style__two__item">
                                 <div class="services__style__two__icon">
-                                    <img src="assets/img/icons/services_light_icon05.png" alt="">
+                                    <img src="{{ asset('frontend/assets/img/icons/services_light_icon05.png') }}" alt="">
                                 </div>
                                 <div class="services__style__two__content">
                                     <h3 class="title"><a href="services-details.html">Animation</a></h3>
@@ -366,7 +366,7 @@ About | Katsucode Website
                         <div class="col-xl-3 col-lg-4 col-md-6">
                             <div class="services__style__two__item">
                                 <div class="services__style__two__icon">
-                                    <img src="assets/img/icons/services_light_icon06.png" alt="">
+                                    <img src="{{ asset('frontend/assets/img/icons/services_light_icon06.png') }}" alt="">
                                 </div>
                                 <div class="services__style__two__content">
                                     <h3 class="title"><a href="services-details.html">Marketing</a></h3>
@@ -379,7 +379,7 @@ About | Katsucode Website
                         <div class="col-xl-3 col-lg-4 col-md-6">
                             <div class="services__style__two__item">
                                 <div class="services__style__two__icon">
-                                    <img src="assets/img/icons/services_light_icon05.png" alt="">
+                                    <img src="{{ asset('frontend/assets/img/icons/services_light_icon05.png') }}" alt="">
                                 </div>
                                 <div class="services__style__two__content">
                                     <h3 class="title"><a href="services-details.html">Brand strategy</a></h3>
@@ -393,7 +393,7 @@ About | Katsucode Website
                         <div class="col-xl-3 col-lg-4 col-md-6">
                             <div class="services__style__two__item">
                                 <div class="services__style__two__icon">
-                                    <img src="assets/img/icons/services_light_icon04.png" alt="">
+                                    <img src="{{ asset('frontend/assets/img/icons/services_light_icon04.png') }}" alt="">
                                 </div>
                                 <div class="services__style__two__content">
                                     <h3 class="title"><a href="services-details.html">Graphic Design</a></h3>
@@ -406,7 +406,7 @@ About | Katsucode Website
                         <div class="col-xl-3 col-lg-4 col-md-6">
                             <div class="services__style__two__item">
                                 <div class="services__style__two__icon">
-                                    <img src="assets/img/icons/services_light_icon07.png" alt="">
+                                    <img src="{{ asset('frontend/assets/img/icons/services_light_icon07.png') }}" alt="">
                                 </div>
                                 <div class="services__style__two__content">
                                     <h3 class="title"><a href="services-details.html">Visual Design</a></h3>
@@ -446,7 +446,7 @@ About | Katsucode Website
                                         <div class="testimonial__avatar">
                                             <span>WPBakery/ uSA</span>
                                             <div class="testi__avatar__img">
-                                                <img src="assets/img/images/testi_avatar01.png" alt="">
+                                                <img src="{{ asset('frontend/assets/img/images/testi_avatar01.png') }}" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -463,7 +463,7 @@ About | Katsucode Website
                                         <div class="testimonial__avatar">
                                             <span>Adobe Photoshop</span>
                                             <div class="testi__avatar__img">
-                                                <img src="assets/img/images/testi_avatar02.png" alt="">
+                                                <img src="{{ asset('frontend/assets/img/images/testi_avatar02.png') }}" alt="">
                                             </div>
                                         </div>
                                     </div>
@@ -476,12 +476,12 @@ About | Katsucode Website
             </div>
             <div class="testimonial__two__icons">
                 <ul>
-                    <li><img src="assets/img/icons/testi_shape01.png" alt=""></li>
-                    <li><img src="assets/img/icons/testi_shape02.png" alt=""></li>
-                    <li><img src="assets/img/icons/testi_shape03.png" alt=""></li>
-                    <li><img src="assets/img/icons/testi_shape04.png" alt=""></li>
-                    <li><img src="assets/img/icons/testi_shape05.png" alt=""></li>
-                    <li><img src="assets/img/icons/testi_shape06.png" alt=""></li>
+                    <li><img src="{{ asset('frontend/assets/img/icons/testi_shape01.png') }}" alt=""></li>
+                    <li><img src="{{ asset('frontend/assets/img/icons/testi_shape02.png') }}" alt=""></li>
+                    <li><img src="{{ asset('frontend/assets/img/icons/testi_shape03.png') }}" alt=""></li>
+                    <li><img src="{{ asset('frontend/assets/img/icons/testi_shape04.png') }}" alt=""></li>
+                    <li><img src="{{ asset('frontend/assets/img/icons/testi_shape05.png') }}" alt=""></li>
+                    <li><img src="{{ asset('frontend/assets/img/icons/testi_shape06.png') }}" alt=""></li>
                 </ul>
             </div>
         </section>
@@ -494,7 +494,7 @@ About | Katsucode Website
                     <div class="col-lg-4 col-md-6 col-sm-9">
                         <div class="blog__post__item">
                             <div class="blog__post__thumb">
-                                <a href="blog-details.html"><img src="assets/img/blog/blog_post_thumb01.jpg"
+                                <a href="blog-details.html"><img src="{{ asset('frontend/assets/img/blog/blog_post_thumb01.jpg') }}"
                                         alt=""></a>
                                 <div class="blog__post__tags">
                                     <a href="blog.html">Story</a>
@@ -511,7 +511,7 @@ About | Katsucode Website
                     <div class="col-lg-4 col-md-6 col-sm-9">
                         <div class="blog__post__item">
                             <div class="blog__post__thumb">
-                                <a href="blog-details.html"><img src="assets/img/blog/blog_post_thumb02.jpg"
+                                <a href="blog-details.html"><img src="{{ asset('frontend/assets/img/blog/blog_post_thumb02.jpg') }}"
                                         alt=""></a>
                                 <div class="blog__post__tags">
                                     <a href="blog.html">Social</a>
@@ -528,7 +528,7 @@ About | Katsucode Website
                     <div class="col-lg-4 col-md-6 col-sm-9">
                         <div class="blog__post__item">
                             <div class="blog__post__thumb">
-                                <a href="blog-details.html"><img src="assets/img/blog/blog_post_thumb03.jpg"
+                                <a href="blog-details.html"><img src="{{ asset('frontend/assets/img/blog/blog_post_thumb03.jpg') }}"
                                         alt=""></a>
                                 <div class="blog__post__tags">
                                     <a href="blog.html">Work</a>
